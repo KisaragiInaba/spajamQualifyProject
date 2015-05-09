@@ -142,10 +142,9 @@ public class Baby : MonoBehaviour {
             nowHp += item.gainHp;
             nowMood += item.gainMood;
             nowTime += item.gainTime;
-            dangerScript.Init(1);
+            dangerScript.Init(item.itemNum);
             sendScript.resultDamage++;
             Destroy(col.gameObject);
-            Debug.Log("hit2");
         }
     }
 
