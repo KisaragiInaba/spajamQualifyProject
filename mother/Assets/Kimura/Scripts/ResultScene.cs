@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ResultScene : MonoBehaviour {
 
+	public float delayTime = 0.6f;
+
 	// Use this for initialization
 	void Start () {
 		if (ResultBool.Instance.IsSuccess()) {
@@ -22,22 +24,25 @@ public class ResultScene : MonoBehaviour {
 
 	public void OnButtonBackTitle() {
 		AudioManager.Instance.StopBGM ();
-		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
-		Invoke ("ReturnTitle", 3.0f);
+		StartCoroutine (NextScene (delayTime, "TitleScene"));
 	}
 
 	public void OnButtonRetry() {
 		AudioManager.Instance.StopBGM ();
+		StartCoroutine (NextScene (delayTime, "gameScene"));
+	}
+
+	IEnumerator NextScene(float delay, string nextScene) {
+
+		// FadeIn
+		FadeManager.Instance.LoadLevel (nextScene, delay);
+
+		// SEを鳴らす
 		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
-		Invoke ("RetryGame", 3.0f);
-	}
 
-	void ReturnTitle() {
-		Application.LoadLevel("TitleScene");
-	}
-
-	void RetryGame() {
-		Application.LoadLevel("gameScene");
+		yield return new WaitForSeconds (delay);
+		// シーン遷移
+		//Application.LoadLevel(nextScene);
 	}
 
 	void obstacleDestroy(string tagName) {

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CreditScene : MonoBehaviour {
 
+	public float delayTime = 0.6f;
+
 	// Use this for initialization
 	void Start () {
 		AudioManager.Instance.PlayBGM(SoundBGMType.BGM005_RESULT);
@@ -18,11 +20,7 @@ public class CreditScene : MonoBehaviour {
 	public void OnButtonTitle() {
 		AudioManager.Instance.StopBGM ();
 		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
-		Invoke ("ReturnTitle", 3.0f);
-	}
-
-	void ReturnTitle() {
-		Application.LoadLevel("TitleScene");
+		FadeManager.Instance.LoadLevel ("TitleScene", delayTime);
 	}
 
 	void obstacleDestroy(string tagName) {

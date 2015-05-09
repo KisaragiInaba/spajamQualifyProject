@@ -33,7 +33,7 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 	public static SoundVolume volume = new SoundVolume();
 	
 	public AudioSource BGMsource;
-	private AudioSource[] SEsources = new AudioSource[15]; // 数は自分で調節
+	private AudioSource[] SEsources = new AudioSource[13]; // 数は自分で調節
 	
 	// BGM
 	private AudioClip[] BGM;
@@ -67,9 +67,7 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 			Resources.Load<AudioClip>("Sound/bgm/005"),
 		};
 		SE = new AudioClip[]{
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"), // 決定ボタン
 			Resources.Load<AudioClip>("Sound/se/push"),
 			Resources.Load<AudioClip>("Sound/se/push"),
 			Resources.Load<AudioClip>("Sound/se/push"),

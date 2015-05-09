@@ -1,7 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PanickTitle : MonoBehaviour {
+
+	public float delayTime = 0.6f;
+
+	// デバッグ用
+	// デバッグ時はprivate を publicにする
+	private string nextScene1 = "gameScene";
 
 	// Use this for initialization
 	void Start () {
@@ -18,28 +25,31 @@ public class PanickTitle : MonoBehaviour {
 
 	public void OnButtonStart() {
 		AudioManager.Instance.StopBGM ();
-		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
-		Invoke ("NextGameScene", 3.0f);
+		StartCoroutine (NextScene (delayTime, nextScene1));
 	}
 
 	public void OnButtonCredit() {
 		AudioManager.Instance.StopBGM ();
-		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
-		Invoke ("CallCredit", 3.0f);
+		StartCoroutine (NextScene (delayTime, "creditScene"));
 	}
 
 	public void OnButtonExit() {
 		AudioManager.Instance.StopBGM ();
 		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
-		Invoke ("C", 3.0f);
+		Invoke ("CallExit", delayTime);
 	}
 
-	void NextGameScene() {
-		Application.LoadLevel("GameScene");
-	}
+	IEnumerator NextScene(float delay, string nextScene) {
 
-	void CallCredit() {
-		Application.LoadLevel("CreditScene");
+		// FadeIn
+		FadeManager.Instance.LoadLevel (nextScene, delay);
+
+		// SEを鳴らす
+		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
+
+		yield return new WaitForSeconds (delay);
+		// シーン遷移
+		//Application.LoadLevel(nextScene);
 	}
 
 	void CallExit() {
