@@ -32,7 +32,7 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 	public static SoundVolume volume = new SoundVolume();
 	
 	public AudioSource BGMsource;
-	private AudioSource[] SEsources = new AudioSource[5]; // 数は自分で調節
+	public AudioSource[] SEsources = new AudioSource[5]; // 数は自分で調節
 	
 	// BGM
 	private AudioClip[] BGM;

@@ -5,7 +5,7 @@ public class PanickTitle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		AudioManager.Instance.PlayBGM (SoundBGMType.BGM001);
 	}
 	
 	// Update is called once per frame
