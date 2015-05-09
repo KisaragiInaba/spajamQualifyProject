@@ -118,11 +118,11 @@ public class Baby : MonoBehaviour {
         }
 
         //時間が切れたらシーン遷移
-        if (nowTime <= 0)
+		if (nowTime <= 0.0f)
         {
             sendScript.resultMood = nowMood;
             sendScript.resultTime = nowTime;
-        //    Application.LoadLevel("ScoreScene");
+			Application.LoadLevel("ResultScene");
         }
 	}
 
