@@ -6,9 +6,9 @@ public class ResultScene : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (ResultBool.Instance.IsSuccess()) {
-			AudioManager.Instance.PlayBGM (SoundBGMType.BGM005);
+			AudioManager.Instance.PlayBGM (SoundBGMType.BGM005_RESULT);
 		} else {
-			AudioManager.Instance.PlayBGM (SoundBGMType.BGM006);
+			AudioManager.Instance.PlayBGM (SoundBGMType.BGM006_RESULT);
 		}
 
 		// boolオブジェクトの削除
@@ -22,13 +22,13 @@ public class ResultScene : MonoBehaviour {
 
 	public void OnButtonBackTitle() {
 		AudioManager.Instance.StopBGM ();
-		AudioManager.Instance.PlaySE (SoundSEType.SE001_JINGLE06);
+		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
 		Invoke ("ReturnTitle", 3.0f);
 	}
 
 	public void OnButtonRetry() {
 		AudioManager.Instance.StopBGM ();
-		AudioManager.Instance.PlaySE (SoundSEType.SE001_JINGLE06);
+		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
 		Invoke ("RetryGame", 3.0f);
 	}
 

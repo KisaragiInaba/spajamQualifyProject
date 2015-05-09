@@ -5,7 +5,7 @@ public class CreditScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		AudioManager.Instance.PlayBGM(SoundBGMType.BGM005);
+		AudioManager.Instance.PlayBGM(SoundBGMType.BGM005_RESULT);
 
 		obstacleDestroy ("ResultBool");
 	}
@@ -17,7 +17,7 @@ public class CreditScene : MonoBehaviour {
 
 	public void OnButtonTitle() {
 		AudioManager.Instance.StopBGM ();
-		AudioManager.Instance.PlaySE (SoundSEType.SE001_JINGLE06);
+		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
 		Invoke ("ReturnTitle", 3.0f);
 	}
 

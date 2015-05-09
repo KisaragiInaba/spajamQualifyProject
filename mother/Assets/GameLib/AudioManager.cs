@@ -8,7 +8,7 @@ using System.Collections;
 
 public enum SoundSEType : int
 {
-	SE001_JINGLE06,
+	SE001_PUSH,
 	SE002,
 	SE003,
 	SE004,
@@ -18,12 +18,12 @@ public enum SoundSEType : int
 
 public enum SoundBGMType : int
 {
-	BGM001,
-	BGM002,
-	BGM003,
-	BGM004,
-	BGM005,
-	BGM006,
+	BGM001_TITLE,
+	BGM002_GAME,
+	BGM003_GAME,
+	BGM004_GAME,
+	BGM005_RESULT,
+	BGM006_RESULT,
 }
 
 // 音管理クラス
@@ -33,7 +33,7 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 	public static SoundVolume volume = new SoundVolume();
 	
 	public AudioSource BGMsource;
-	private AudioSource[] SEsources = new AudioSource[1]; // 数は自分で調節
+	private AudioSource[] SEsources = new AudioSource[15]; // 数は自分で調節
 	
 	// BGM
 	private AudioClip[] BGM;
@@ -67,7 +67,21 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 			Resources.Load<AudioClip>("Sound/bgm/005"),
 		};
 		SE = new AudioClip[]{
-			Resources.Load<AudioClip>("Sound/se/se_maoudamashii_jingle06"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"),
 		};
 
 		comTransform = GetComponent<Transform> ();
