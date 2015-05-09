@@ -5,7 +5,7 @@ public class PanickTitle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		AudioManager.Instance.PlayBGM(SoundBGMType.BGM001);
 	}
 	
 	// Update is called once per frame
@@ -13,13 +13,15 @@ public class PanickTitle : MonoBehaviour {
 	
 	}
 
-	public void OnButton1()
-	{
+	public void OnButtonStart() {
 		Application.LoadLevel("GameScene");
 	}
 
-	public void OnButton2()
-	{
-		Application.Quit ();
+	public void OnButtonCredit() {
+		Application.LoadLevel("CreditScene");
+	}
+
+	public void OnButtonExit() {
+		Application.Quit();
 	}
 }

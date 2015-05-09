@@ -6,9 +6,9 @@ using UnityEngine;
 using System;
 using System.Collections;
 
-public enum SoundSETye : int
+public enum SoundSEType : int
 {
-	SE001_PUSH_NUKO,
+	SE001_JINGLE06,
 	SE002,
 	SE003,
 	SE004,
@@ -32,7 +32,7 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 	public static SoundVolume volume = new SoundVolume();
 	
 	public AudioSource BGMsource;
-	private AudioSource[] SEsources = new AudioSource[5]; // 数は自分で調節
+	private AudioSource[] SEsources = new AudioSource[1]; // 数は自分で調節
 	
 	// BGM
 	private AudioClip[] BGM;
@@ -59,21 +59,13 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 		// ロード
 		BGM = new AudioClip[]{
 			Resources.Load<AudioClip>("Sound/bgm/000"), // 0
-			Resources.Load<AudioClip>("Sound/bgm/001"), // 1
-			Resources.Load<AudioClip>("Sound/bgm/002"), // 2
-			Resources.Load<AudioClip>("Sound/bgm/003"), // 3
+			Resources.Load<AudioClip>("Sound/bgm/001"), // ここからゲームBGM
+			Resources.Load<AudioClip>("Sound/bgm/002"),
+			Resources.Load<AudioClip>("Sound/bgm/003"),
 			Resources.Load<AudioClip>("Sound/bgm/004"),
-			Resources.Load<AudioClip>("Sound/bgm/005"),
-			Resources.Load<AudioClip>("Sound/bgm/006"),
-			Resources.Load<AudioClip>("Sound/bgm/007"),
 		};
 		SE = new AudioClip[]{
-			Resources.Load<AudioClip>("Sound/se/se_n_pack_ataak"),
-			Resources.Load<AudioClip>("Sound/se/10_good"),
-			Resources.Load<AudioClip>("Sound/se/11_combo1"),
-			Resources.Load<AudioClip>("Sound/se/12_combo2"),//14_combo4
-			Resources.Load<AudioClip>("Sound/se/13_combo3"),
-			Resources.Load<AudioClip>("Sound/se/14_combo4"),
+			Resources.Load<AudioClip>("Sound/se/se_maoudamashii_jingle06"),
 		};
 
 		comTransform = GetComponent<Transform> ();
@@ -132,7 +124,7 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 	}
 	
 	// SE再生
-	public void PlaySE(SoundSETye type)
+	public void PlaySE(SoundSEType type)
 	{
 		
 		// 再生中で無いAudioSouceで鳴らす

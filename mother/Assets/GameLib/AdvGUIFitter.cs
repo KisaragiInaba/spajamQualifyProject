@@ -6,6 +6,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+
 /// <summary>
 /// OnGUI上でアスペクト比を設定したいときに使う
 /// </summary>
@@ -19,10 +20,10 @@ public class AdvGUIFitter
     public static void BeginGUI()
     {
         stack.Add(GUI.matrix);
-        Matrix4x4 m = new Matrix4x4();
-        float w = (float)Screen.width;
-        float h = (float)Screen.height;
-        float aspect = w / h;
+	    Matrix4x4 m = new Matrix4x4();
+		float w = (float)Screen.width;
+	    float h = (float)Screen.height;
+	    float aspect = w / h;
         float scale = 1f;
         Vector3 offset = Vector3.zero;
         if (aspect < (m_Width / m_Height))
@@ -59,5 +60,4 @@ public class AdvGUIFitter
         m_Width = width;
         m_Height = height;
     }
-
 }
