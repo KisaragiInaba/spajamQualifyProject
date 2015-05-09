@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PanickTitle : MonoBehaviour {
 
 	public float delayTime = 0.6f;
+	public float delayExitTime = 0.3f;
 
 	// デバッグ用
 	// デバッグ時はprivate を publicにする
@@ -36,7 +37,7 @@ public class PanickTitle : MonoBehaviour {
 	public void OnButtonExit() {
 		AudioManager.Instance.StopBGM ();
 		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
-		Invoke ("CallExit", delayTime);
+		Invoke ("CallExit", delayExitTime);
 	}
 
 	IEnumerator NextScene(float delay, string nextScene) {
