@@ -13,7 +13,7 @@ public enum SoundSEType : int
 	SE003,
 	SE004,
 	SE005,
-	SE006
+	SE006,
 }
 
 public enum SoundBGMType : int
@@ -23,6 +23,7 @@ public enum SoundBGMType : int
 	BGM003,
 	BGM004,
 	BGM005,
+	BGM006,
 }
 
 // 音管理クラス
@@ -62,7 +63,8 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 			Resources.Load<AudioClip>("Sound/bgm/001"), // ここからゲームBGM
 			Resources.Load<AudioClip>("Sound/bgm/002"),
 			Resources.Load<AudioClip>("Sound/bgm/003"),
-			Resources.Load<AudioClip>("Sound/bgm/004"),
+			Resources.Load<AudioClip>("Sound/bgm/004"), // ここからリザルト＆クレジット用BGM
+			Resources.Load<AudioClip>("Sound/bgm/005"),
 		};
 		SE = new AudioClip[]{
 			Resources.Load<AudioClip>("Sound/se/se_maoudamashii_jingle06"),
