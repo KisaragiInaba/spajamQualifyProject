@@ -1,21 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SendDataScript : MonoBehaviour {
+public class DamageText : MonoBehaviour {
 
-    public int resultDamage;
-    public float resultTime;
-    public float resultMood;
+	public GUIText text;
 
 
 	// Use this for initialization
 	void Start () {
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
-
-
 }
