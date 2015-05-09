@@ -9,11 +9,15 @@ using System.Collections;
 public enum SoundSEType : int
 {
 	SE001_PUSH,
-	SE002,
-	SE003,
-	SE004,
-	SE005,
-	SE006,
+	SE002_UP,
+	SE003_DOWN,
+	SE004_HIT,
+	SE005_DANGER,
+	SE006_SHIT,
+	SE007_MISTAKE,
+	SE008_AET,
+	SE009_PAPER,
+	SE010_SENTAKU,
 }
 
 public enum SoundBGMType : int
@@ -33,7 +37,7 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 	public static SoundVolume volume = new SoundVolume();
 	
 	public AudioSource BGMsource;
-	private AudioSource[] SEsources = new AudioSource[15]; // 数は自分で調節
+	private AudioSource[] SEsources = new AudioSource[11]; // 数は自分で調節
 	
 	// BGM
 	private AudioClip[] BGM;
@@ -67,21 +71,16 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 			Resources.Load<AudioClip>("Sound/bgm/005"),
 		};
 		SE = new AudioClip[]{
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
-			Resources.Load<AudioClip>("Sound/se/push"),
+			Resources.Load<AudioClip>("Sound/se/push"), 		// 決定ボタン
+			Resources.Load<AudioClip>("Sound/se/game_up"),		// ご機嫌UP
+			Resources.Load<AudioClip>("Sound/se/game_down"),	// ご機嫌DOWN
+			Resources.Load<AudioClip>("Sound/se/game_hit"),		// ぶつかる
+			Resources.Load<AudioClip>("Sound/se/game_danger"),	// 危険
+			Resources.Load<AudioClip>("Sound/se/game_shit"),	// やばそう
+			Resources.Load<AudioClip>("Sound/se/game_mistake"),	// やらかした
+			Resources.Load<AudioClip>("Sound/se/game_aet"),		// 食べた
+			Resources.Load<AudioClip>("Sound/se/game_paper"),	// 紙
+			Resources.Load<AudioClip>("Sound/se/game_sentaku"),	// 洗濯物
 		};
 
 		comTransform = GetComponent<Transform> ();
