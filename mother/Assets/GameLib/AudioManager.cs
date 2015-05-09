@@ -6,9 +6,9 @@ using UnityEngine;
 using System;
 using System.Collections;
 
-public enum SoundSETye : int
+public enum SoundSEType : int
 {
-	SE001_PUSH_NUKO,
+	SE001_JINGLE06,
 	SE002,
 	SE003,
 	SE004,
@@ -68,7 +68,7 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 			Resources.Load<AudioClip>("Sound/bgm/007"),
 		};
 		SE = new AudioClip[]{
-			Resources.Load<AudioClip>("Sound/se/se_n_pack_ataak"),
+			Resources.Load<AudioClip>("Sound/se/se_maoudamashii_jingle06"),
 			Resources.Load<AudioClip>("Sound/se/10_good"),
 			Resources.Load<AudioClip>("Sound/se/11_combo1"),
 			Resources.Load<AudioClip>("Sound/se/12_combo2"),//14_combo4
@@ -132,7 +132,7 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
 	}
 	
 	// SE再生
-	public void PlaySE(SoundSETye type)
+	public void PlaySE(SoundSEType type)
 	{
 		
 		// 再生中で無いAudioSouceで鳴らす
