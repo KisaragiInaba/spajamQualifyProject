@@ -28,8 +28,14 @@ public class BabyMove : MonoBehaviour {
     private Transform clockShort;
 
 
+    /*
     private int patterned;      //
     private Transform positioned;        //動いてたらアニメーション
+    */
+
+
+    //デバック用
+    private bool check; 
 
 	// Use this for initialization
 	void Start () {
@@ -40,11 +46,18 @@ public class BabyMove : MonoBehaviour {
         clockLong = GameObject.Find("Long").transform;
         clockShort = GameObject.Find("Short").transform;
 
-        tage = GameObject.Find("target0");
+        //tage = GameObject.Find("target0");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetMouseButton(0))
+        {
+
+        }
+        else
+        {
+        }
         nowTime -= Time.deltaTime;
 
         //時間に比例して時計を回す
@@ -52,7 +65,7 @@ public class BabyMove : MonoBehaviour {
         clockShort.localRotation = Quaternion.Euler(0, 0, -90 + 1080 * nowTime / LimitTime /12 );
 
         //ランダムにターゲットに移動する
-        if (Time.frameCount % 180 == 0)
+        if (Time.frameCount % 180 == 0 || tage == null)
         {
             int pattern = UnityEngine.Random.Range(0,3);
             switch(pattern){
@@ -70,10 +83,12 @@ public class BabyMove : MonoBehaviour {
                     break;
             }
         }
-        LookAt2D(tage);
-       // transform.Rotate(90, 0, 0);
-        transform.position = Vector3.MoveTowards(transform.position, tage.transform.position, Time.deltaTime * speed);
-
+        if (tage != null)
+        {
+            LookAt2D(tage);
+            // transform.Rotate(90, 0, 0);
+            transform.position = Vector3.MoveTowards(transform.position, tage.transform.position, Time.deltaTime * speed);
+        }
 
         //時間が切れたらシーン遷移
         if (nowTime <= 0)
@@ -84,8 +99,8 @@ public class BabyMove : MonoBehaviour {
 
     void OnGUI()
     {
-        GUI.Label(new Rect(380, 0, 100, 20), "HP:" + nowHp);
-        GUI.Label(new Rect(128, 20, 100, 20), "Mood:" + nowMood);
+        GUI.Label(new Rect(100, 0, 100, 20), "HP:" + nowHp);
+        GUI.Label(new Rect(100, 20, 100, 20), "Mood:" + nowMood);
         GUI.Label(new Rect(100, 40, 100, 20), "Time:" + nowTime);
     }
 
@@ -93,6 +108,11 @@ public class BabyMove : MonoBehaviour {
     {
         if (col.tag == "Item")
         {
+            ItemScript item = col.GetComponent<ItemScript>();
+            nowHp += item.gainHp;
+            nowMood += item.gainMood;
+            nowTime += item.gainTime;
+            Destroy(col.gameObject);
             Debug.Log("hit2");
         }
     }
