@@ -84,7 +84,10 @@ public class Baby : MonoBehaviour {
         //ランダムにターゲットに移動する
         if (Time.frameCount % 180 == 0 || tage == null)
         {
-            int pattern = UnityEngine.Random.Range(0,5);
+            int pattern = UnityEngine.Random.Range(0,16);
+            string tagename = "target" + pattern;
+            tage = GameObject.Find(tagename);
+           /*
             switch(pattern){
                 case 0:
                     tage = GameObject.Find("target0");
@@ -104,7 +107,7 @@ public class Baby : MonoBehaviour {
                 case 5:
                     tage = GameObject.Find("target5");
                     break;
-            }
+            }*/
         }
         if (tage != null)
         {
@@ -118,11 +121,11 @@ public class Baby : MonoBehaviour {
         }
 
         //時間が切れたらシーン遷移
-		if (nowTime <= 0.0f)
+        if (nowTime <= 0)
         {
             sendScript.resultMood = nowMood;
             sendScript.resultTime = nowTime;
-			Application.LoadLevel("ResultScene");
+        //    Application.LoadLevel("ScoreScene");
         }
 	}
 
@@ -142,6 +145,7 @@ public class Baby : MonoBehaviour {
             nowHp += item.gainHp;
             nowMood += item.gainMood;
             nowTime += item.gainTime;
+            //dangerScript.Init(6);
             dangerScript.Init(item.itemNum);
             sendScript.resultDamage++;
             Destroy(col.gameObject);

@@ -33,7 +33,10 @@ public class DangerScript : MonoBehaviour {
 
     public void Init(int num)
     {
-        Debug.Log("通った");
+        if (cutIn.Length <= num)
+        {
+            return;
+        }
         count = 120;
         transform.position = new Vector3(10, 1.8f, 0);
         renderer = gameObject.GetComponent<SpriteRenderer>();
