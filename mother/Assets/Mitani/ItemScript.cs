@@ -8,7 +8,7 @@ public class ItemScript : MonoBehaviour {
     public float gainMood = 0;
     public float gainTime = 0;
 
-
+    public int itemNum;
     //Catch
     private bool catchFlag = false;
     private Camera camera;

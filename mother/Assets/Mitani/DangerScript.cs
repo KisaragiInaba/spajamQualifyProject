@@ -29,6 +29,7 @@ public class DangerScript : MonoBehaviour {
 
     public void Init(int num)
     {
+        Debug.Log("通った");
         count = 180;
         renderer.sprite = cutIn[num];
         transform.position = new Vector3(10, 1.8f, 0);

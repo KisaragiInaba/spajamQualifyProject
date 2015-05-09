@@ -31,9 +31,13 @@ public class Baby : MonoBehaviour {
     private Transform hpBar;
     private Transform moodBar;
 
-
+    //データ渡し用
     private GameObject sendData;
     private SendDataScript sendScript;
+
+    //デンジャー
+    private GameObject danger;
+    private DangerScript dangerScript;
     /*
     private int patterned;      //
     private Transform positioned;        //動いてたらアニメーション
@@ -57,6 +61,9 @@ public class Baby : MonoBehaviour {
 
         sendData = GameObject.Find("SendData");
         sendScript = sendData.GetComponent<SendDataScript>();
+
+        danger = GameObject.Find("Danger");
+        dangerScript = danger.GetComponent<DangerScript>();
         //tage = GameObject.Find("target0");
 	}
 	
@@ -135,6 +142,7 @@ public class Baby : MonoBehaviour {
             nowHp += item.gainHp;
             nowMood += item.gainMood;
             nowTime += item.gainTime;
+            dangerScript.Init(1);
             sendScript.resultDamage++;
             Destroy(col.gameObject);
             Debug.Log("hit2");

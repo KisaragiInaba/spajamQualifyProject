@@ -27,7 +27,9 @@ public class ItemPrefab : MonoBehaviour {
                 Debug.Log(randnum);
                 GameObject item = Instantiate(Item[randnum], popPosition, transform.rotation) as GameObject;
                 item.name = "target" + randnum;
-                
+
+                ItemScript itemScript = item.GetComponent<ItemScript>();
+                itemScript.itemNum = randnum;
             }
         }
 	}
