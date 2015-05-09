@@ -17,14 +17,32 @@ public class PanickTitle : MonoBehaviour {
 	}
 
 	public void OnButtonStart() {
-		Application.LoadLevel("ResultScene");
+		AudioManager.Instance.StopBGM ();
+		AudioManager.Instance.PlaySE (SoundSEType.SE001_JINGLE06);
+		Invoke ("NextGameScene", 3.0f);
 	}
 
 	public void OnButtonCredit() {
-		Application.LoadLevel("CreditScene");
+		AudioManager.Instance.StopBGM ();
+		AudioManager.Instance.PlaySE (SoundSEType.SE001_JINGLE06);
+		Invoke ("CallCredit", 3.0f);
 	}
 
 	public void OnButtonExit() {
+		AudioManager.Instance.StopBGM ();
+		AudioManager.Instance.PlaySE (SoundSEType.SE001_JINGLE06);
+		Invoke ("C", 3.0f);
+	}
+
+	void NextGameScene() {
+		Application.LoadLevel("GameScene");
+	}
+
+	void CallCredit() {
+		Application.LoadLevel("CreditScene");
+	}
+
+	void CallExit() {
 		Application.Quit();
 	}
 }
