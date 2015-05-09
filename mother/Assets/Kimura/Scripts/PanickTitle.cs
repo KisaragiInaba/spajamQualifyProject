@@ -6,6 +6,9 @@ public class PanickTitle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		AudioManager.Instance.PlayBGM(SoundBGMType.BGM001);
+
+		// クリアフラグ初期化
+		ResultBool.Instance.SetSuccessFlag(true);
 	}
 	
 	// Update is called once per frame
@@ -14,7 +17,7 @@ public class PanickTitle : MonoBehaviour {
 	}
 
 	public void OnButtonStart() {
-		Application.LoadLevel("GameScene");
+		Application.LoadLevel("ResultScene");
 	}
 
 	public void OnButtonCredit() {

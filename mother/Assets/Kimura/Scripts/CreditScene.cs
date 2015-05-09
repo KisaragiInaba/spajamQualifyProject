@@ -5,7 +5,7 @@ public class CreditScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		AudioManager.Instance.StartBGM ();
+		AudioManager.Instance.PlayBGM(SoundBGMType.BGM005);
 	}
 	
 	// Update is called once per frame
