@@ -15,7 +15,7 @@ public class PanickTitle : MonoBehaviour {
 
 	public void OnButton1()
 	{
-		Application.LoadLevel("");
+		Application.LoadLevel("GameScene");
 	}
 
 	public void OnButton2()
