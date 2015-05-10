@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SendDataScript : MonoBehaviour {
+public class SendDataScript : SingletonMonoBehaviourFast<SendDataScript> {
 
     public int resultDamage;
     public float resultTime;
     public float resultMood;
 
+	private void Awake() {
+		CheckInstance ();
+	}
 
 	// Use this for initialization
 	void Start () {
