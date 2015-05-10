@@ -60,7 +60,7 @@ public class FadeManager : MonoBehaviour
 			//色と透明度を更新して白テクスチャを描画 .
 			this.fadeColor.a = this.fadeAlpha;
 			GUI.color = this.fadeColor;
-		//	GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
+			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
 		}		
 	
 		if (this.DebugMode) {
