@@ -9,7 +9,7 @@ public class DamageText : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		damage = SendDataScript.Instance.resultDamage;
+		damage = SendDataScript.Instance.GetResultDamage();
 		damage *= -1;
 		damageText.text = damage.ToString ();
 	}

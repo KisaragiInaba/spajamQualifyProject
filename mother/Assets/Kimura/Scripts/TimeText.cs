@@ -9,15 +9,10 @@ public class TimeText : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		time = (int)SendDataScript.Instance.resultTime;
+		time = (int)SendDataScript.Instance.GetResultTime ();
 		if (time <= 0) {
 			time = 0;
 		}
 		timeText.text = time.ToString ();
-	}
-
-	// Update is called once per frame
-	void Update () {
-
 	}
 }

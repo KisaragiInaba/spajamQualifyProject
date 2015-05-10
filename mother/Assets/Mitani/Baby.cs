@@ -123,8 +123,8 @@ public class Baby : MonoBehaviour {
         //時間が切れたらシーン遷移
 		if (nowTime <= 0.0f)
         {
-            sendScript.resultMood = nowMood;
-            sendScript.resultTime = nowTime;
+			sendScript.SetResultMood(nowMood);
+			sendScript.SetResultTime(nowTime);
 			Application.LoadLevel("ResultScene");
         }
 	}
@@ -147,7 +147,7 @@ public class Baby : MonoBehaviour {
             nowTime += item.gainTime;
             //dangerScript.Init(6);
             dangerScript.Init(item.itemNum);
-            sendScript.resultDamage++;
+			//sendScript.resultDamage++;
             Destroy(col.gameObject);
         }
     }

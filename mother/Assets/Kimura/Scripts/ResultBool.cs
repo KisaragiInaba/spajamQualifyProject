@@ -7,7 +7,6 @@ public class ResultBool : SingletonMonoBehaviourFast<ResultBool> {
 
 	protected override void Awake() {
 		CheckInstance ();
-
 	}
 
 	// ゲームのクリアフラグ(true : 成功, false : 失敗)

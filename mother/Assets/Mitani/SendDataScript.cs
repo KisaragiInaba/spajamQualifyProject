@@ -3,22 +3,35 @@ using System.Collections;
 
 public class SendDataScript : SingletonMonoBehaviourFast<SendDataScript> {
 
-    public int resultDamage;
-    public float resultTime;
-    public float resultMood;
+	private int resultDamage;
+	private float resultTime;
+	private float resultMood;
 
-	private void Awake() {
+	protected override void Awake() {
 		CheckInstance ();
 	}
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void SetResultDamage(int damage) {
+		resultDamage = damage;
 	}
 
+	public void SetResultTime(float time) {
+		resultTime = time;
+	}
 
+	public void SetResultMood(float mood) {
+		resultMood = mood;
+	}
+
+	public int GetResultDamage() {
+		return resultDamage;
+	}
+
+	public float GetResultTime() {
+		return resultTime;
+	}
+
+	public float GetResultMood() {
+		return resultMood;
+	}
 }

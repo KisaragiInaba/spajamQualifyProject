@@ -9,7 +9,7 @@ public class MoodText : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		mood = (int)SendDataScript.Instance.resultMood;
+		mood = (int)SendDataScript.Instance.GetResultMood();
 		if (mood <= 0) {
 			mood = 0;
 		}

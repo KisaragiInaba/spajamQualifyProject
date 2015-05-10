@@ -29,7 +29,7 @@ public class ResultScene : MonoBehaviour {
 
 	public void OnButtonRetry() {
 		AudioManager.Instance.StopBGM ();
-		StartCoroutine (NextScene (delayTime, "gameScene"));
+		StartCoroutine (NextScene (delayTime, "GameScene"));
 	}
 
 	IEnumerator NextScene(float delay, string nextScene) {
