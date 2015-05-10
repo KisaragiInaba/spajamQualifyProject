@@ -5,14 +5,10 @@ using System.Collections.Generic;
 
 public class PanickTitle : MonoBehaviour {
 
-	public float delayTime = 0.6f;
-	public float delayExitTime = 0.3f;
-
 	public Canvas canvas;
 
-	// デバッグ用
-	// デバッグ時はprivate を publicにする
-	private string nextScene1 = "gameScene";
+	public float delayTime = 0.6f;
+	public float delayExitTime = 0.3f;
 
 	// Use this for initialization
 	void Start () {
@@ -62,7 +58,7 @@ public class PanickTitle : MonoBehaviour {
 
 	public void OnButtonGame() {
 		AudioManager.Instance.StopBGM ();
-		StartCoroutine (NextScene (delayTime, nextScene1));
+		StartCoroutine (NextScene (delayTime, "gameScene"));
 	}
 
 	public void OnButtonCredit() {
