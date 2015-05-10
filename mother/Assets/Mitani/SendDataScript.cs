@@ -7,7 +7,8 @@ public class SendDataScript : SingletonMonoBehaviourFast<SendDataScript> {
 	private float resultTime;
 	private float resultMood;
 
-	protected override void Awake() {
+	protected override void Awake ()
+	{
 		CheckInstance ();
 	}
 
@@ -23,7 +24,7 @@ public class SendDataScript : SingletonMonoBehaviourFast<SendDataScript> {
 		resultMood = mood;
 	}
 
-	public int GetResultDamage() {
+	public int GetResultDamage(){
 		return resultDamage;
 	}
 

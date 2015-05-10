@@ -15,9 +15,6 @@ public class PanickTitle : MonoBehaviour {
 		AudioManager.Instance.PlayBGM(SoundBGMType.BGM001_TITLE);
 
 		InitButton ();
-
-		// クリアフラグ初期化
-		ResultBool.Instance.SetSuccessFlag(true);
 	}
 
 	void InitButton() {
@@ -58,12 +55,12 @@ public class PanickTitle : MonoBehaviour {
 
 	public void OnButtonGame() {
 		AudioManager.Instance.StopBGM ();
-		StartCoroutine (NextScene (delayTime, "gameScene"));
+		StartCoroutine (NextScene (delayTime, "GameScene"));
 	}
 
 	public void OnButtonCredit() {
 		AudioManager.Instance.StopBGM ();
-		StartCoroutine (NextScene (delayTime, "creditScene"));
+		StartCoroutine (NextScene (delayTime, "CreditScene"));
 	}
 
 	public void OnButtonExit() {
