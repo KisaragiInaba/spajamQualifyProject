@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,6 +7,8 @@ public class PanickTitle : MonoBehaviour {
 
 	public float delayTime = 0.6f;
 	public float delayExitTime = 0.3f;
+
+	public Canvas canvas;
 
 	// デバッグ用
 	// デバッグ時はprivate を publicにする
@@ -15,16 +18,49 @@ public class PanickTitle : MonoBehaviour {
 	void Start () {
 		AudioManager.Instance.PlayBGM(SoundBGMType.BGM001_TITLE);
 
+		InitButton ();
+
 		// クリアフラグ初期化
 		ResultBool.Instance.SetSuccessFlag(true);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void InitButton() {
+		// キャンバスのボタン関連
+		foreach (Transform child in canvas.transform) {
+			switch (child.name) {
+			case "GameButton":
+			case "CreditButton":
+			case "ExitButton":
+				Button button1 = child.gameObject.GetComponent<Button> ();
+				button1.gameObject.SetActive (false);
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
 	public void OnButtonStart() {
+		AudioManager.Instance.PlaySE (SoundSEType.SE001_PUSH);
+		foreach (Transform child in canvas.transform) {
+			switch (child.name) {
+			case "GameButton":
+			case "CreditButton":
+			case "ExitButton":
+				Button button1 = child.gameObject.GetComponent<Button> ();
+				button1.gameObject.SetActive (true);
+				break;
+			case "StartButton":
+				Button button2 = child.gameObject.GetComponent<Button> ();
+				button2.gameObject.SetActive (false);
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	public void OnButtonGame() {
 		AudioManager.Instance.StopBGM ();
 		StartCoroutine (NextScene (delayTime, nextScene1));
 	}
